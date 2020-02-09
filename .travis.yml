@@ -18,4 +18,4 @@ after_script:
 
 env:
   global:
-    - GH_REF: github.com:monkeycf/monkeycf.github.io.git
+    - GH_REF: github.com/monkeycf/monkeycf.github.io.git
