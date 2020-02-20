@@ -3,7 +3,7 @@ title: vue2源码-1-项目结构与架构设计
 tags:
   - vue2
   - vue2源码
-categories: vue2源码
+categories: vue2
 description: vue2源码的项目结构和架构设计
 abbrlink: 263498561
 date: 2020-02-12 22:41:20

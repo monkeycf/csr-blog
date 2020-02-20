@@ -6,7 +6,7 @@ tags:
  - vue2
  - vue2源码
 description: VNode简介
-categories: vue2源码
+categories: vue2
 ---
 
 # VNode
