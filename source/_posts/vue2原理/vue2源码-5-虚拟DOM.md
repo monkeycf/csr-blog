@@ -1,11 +1,11 @@
 ---
-title: vue2源码-5-虚拟DOM
+title: Vue2源码-5-虚拟DOM
 tags:
-  - vue2
-  - vue2源码
+  - Vue2
+  - Vue2源码
   - 虚拟DOM
-description: vue2中的虚拟DOM简介
-categories: vue2
+description: Vue2中的虚拟DOM简介
+categories: Vue2
 abbrlink: 1298496172
 date: 2020-01-22 10:27:05
 ---

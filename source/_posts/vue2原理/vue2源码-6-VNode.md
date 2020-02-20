@@ -1,12 +1,12 @@
 ---
-title: vue2源码-6-VNode
+title: Vue2源码-6-VNode
 abbrlink: 1711503651
 date: 2020-01-22 11:26:04
 tags:
- - vue2
- - vue2源码
+ - Vue2
+ - Vue2源码
 description: VNode简介
-categories: vue2
+categories: Vue2
 ---
 
 # VNode
@@ -15,7 +15,7 @@ categories: vue2
 
 ## 作用
 
-vue2对状态侦测策略采用了中等粒度。当状态发生变化时，只通知到组件级别，然后组件内使用虚拟DOM来渲染视图。
+Vue2对状态侦测策略采用了中等粒度。当状态发生变化时，只通知到组件级别，然后组件内使用虚拟DOM来渲染视图。
 
 > 对vnode进行缓存，并将上一次缓存的vnode和当前新创建的vnode进行对比，只更新发生变化的节点。
 
@@ -115,7 +115,7 @@ export function cloneVNode (vnode: VNode): VNode {
 * tag：节点的名称（p、ul、li、div）
 * data：节点上的数据（style、class）
 * children：子节点列表
-* context：当前节点的vue实例
+* context：当前节点的Vue实例
 
 ``` json
 {

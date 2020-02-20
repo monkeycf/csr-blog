@@ -1,10 +1,10 @@
 ---
-title: vue2-组件传值
+title: Vue2-组件传值
 tags:
-  - vue2
+  - Vue2
 categories:
-  - vue2
-description: vue2中组件的传值
+  - Vue2
+description: Vue2中组件的传值
 abbrlink: 593345607
 date: 2020-02-20 19:11:15
 ---
@@ -40,7 +40,7 @@ Vue.component('base-checkbox', {
 # 父组件向子组件传值
 
 ## props
-可以说这是比较常见的一种vue父组件传值给子组件的方法。
+可以说这是比较常见的一种Vue父组件传值给子组件的方法。
 **注：prop为单向流，子组件不应直接修改该值。应该使用计算属性使用props**
 ```javascript
 Vue.component('base-list', {
@@ -81,7 +81,7 @@ props应该尽可能的将属性写完成，这样可以更好地防止出乎意
 ## $children / $refs
 
 所有的子组件都会保存在$children数组中，该数组乱序。
-注：在控制台将vue实例打印出来我们可以发现很多以$和_（下划线）开头的属性。$开头的属性是提供给用户使用的，_ 开头的属性是vue内部使用的。开发者不应该直接修改以 _ 开头的属性，以免造成不可预料的错误（当然，直接修改也有很多surprise >_<）。
+注：在控制台将Vue实例打印出来我们可以发现很多以$和_（下划线）开头的属性。$开头的属性是提供给用户使用的，_ 开头的属性是Vue内部使用的。开发者不应该直接修改以 _ 开头的属性，以免造成不可预料的错误（当然，直接修改也有很多surprise >_<）。
 
 直接给子元素添加ref属性，通过$refs直接访问。
 ```html
@@ -268,4 +268,4 @@ this.emit('update:name', 'new name');
    ```
 
 # Vuex
-作为vue的核心插件，这里就不再多多累赘了，可详见官网[vuex](https://vuex.vuejs.org)
+作为Vue的核心插件，这里就不再多多累赘了，可详见官网[Vuex](https://vuex.vuejs.org)
