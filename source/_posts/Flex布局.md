@@ -1,11 +1,12 @@
 ---
 title: Flex布局
-date: 2020-02-21 21:52:06
 tags:
- - Flex
-categories: 
- - CSS
+  - Flex
+categories:
+  - CSS
 description: Flex布局相关属性及用法
+abbrlink: 2875753233
+date: 2020-02-21 21:52:06
 ---
 
 # Flex布局
