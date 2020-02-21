@@ -1,10 +1,10 @@
 ---
-title: Vue2源码-4-变化侦测相关的API实现原理
+title: Vue2源码-3-变化侦测相关的API实现原理
 tags:
   - Vue2
   - Vue2源码
 description: Vue2变化侦测相关的API实现原理,watch/set/delete
-categories: Vue2源码
+categories: Vue2
 abbrlink: 429737347
 date: 2020-01-21 13:22:18
 ---
