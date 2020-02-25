@@ -1,5 +1,5 @@
 ---
-title: JS高级程序设计-3-基本概念
+title: JS基本概念
 tags:
   - JavaScript
 description: 语法、数据类型、流程控制句、函数
