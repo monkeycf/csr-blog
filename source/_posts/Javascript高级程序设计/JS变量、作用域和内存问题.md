@@ -1,5 +1,5 @@
 ---
-title: JS变量、作用域和内存问腿
+title: JS变量、作用域和内存问题
 tags:
   - JavaScript
 categories: JavaScript高级程序设计
