@@ -4,18 +4,15 @@ node_js: stable
 install:
   - npm install
 
-script:
-  - hexo g
-
-after_script:
-  - cd ./public
-  - git init
-  - git config user.name "csr"
-  - git config user.email "${USER_EMAIL}"
-  - git add .
-  - git commit -m "Update docs"
-  - git push --force --quiet "https://${GITHUB_TOKEN}@${GH_REF}" master:master
-
-env:
-  global:
-    - GH_REF: github.com/monkeycf/monkeycf.github.io.git
+jobs:
+  include:
+    - stage: GitHubPages
+      script:
+        - npm run build
+      deploy:
+        provider: pages
+        skip_cleanup: true
+        github_token: $GITHUB_TOKEN
+        keep_history: true
+        local_dir: ./public
+        fqdn: blog.chensenran.top
