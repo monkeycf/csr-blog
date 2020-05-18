@@ -1,21 +1,58 @@
-name: Deploy # workflow name
+name: CI
 
 on:
-  [push] # 触发事件
+  push:
+    branches:
+      - master
+
+env:
+  GIT_USER: monkeycf
+  GIT_EMAIL: 2548772327@qq.com
+  DEPLOY_REPO: monkeycf/monkeycf.github.io
+  DEPLOY_BRANCH: master
 
 jobs:
-  build: # job1 id
-    runs-on: ubuntu-latest # 运行环境为最新版 Ubuntu
-    name: A job to deploy blog.
+  build:
+    name: Build on node ${{ matrix.node_version }} and ${{ matrix.os }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node_version: [12.x]
+
     steps:
-      - name: Checkout # 获取源码
-        uses: actions/checkout@master
+      - name: Checkout
+        uses: actions/checkout@v2
 
-      - name: Install Dependencies
-        run: npm install # 安装 node modules 相关依赖
-
-      - name: Deploy
-        id: deploy
-        uses: sma11black/hexo-action@v1.0.0
+      - name: Checkout deploy repo
+        uses: actions/checkout@v2
         with:
-          deploy_key: ${{ secrets.ACCESS_TOKEN }}
+          repository: ${{ env.DEPLOY_REPO }}
+          ref: ${{ env.DEPLOY_BRANCH }}
+          path: .deploy_git
+
+      - name: Use Node.js ${{ matrix.node_version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node_version }}
+
+      - name: Configuration environment
+        env:
+          HEXO_DEPLOY_PRI: ${{secrets.HEXO_DEPLOY_PRI}}
+        run: |
+          sudo timedatectl set-timezone "Asia/Shanghai"
+          mkdir -p ~/.ssh/
+          echo "$HEXO_DEPLOY_PRI" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          git config --global user.name $GIT_USER
+          git config --global user.email $GIT_EMAIL
+          cp _config.theme.yml themes/concise/_config.yml
+
+      - name: Install dependencies
+        run: |
+          npm install
+
+      - name: Deploy hexo
+        run: |
+          npm run deploy
