@@ -1,19 +1,23 @@
-name: GitHub Actions Build and Deploy Demo
-on:
-  push:
-    branches:
-      - master
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@master
+name: Deploy # workflow name
 
-    - name: Build and Deploy
-      uses: JamesIves/github-pages-deploy-action@master
-      env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: build
-        BUILD_SCRIPT: npm install && npm run build
+on:
+  [push] # 触发事件
+
+jobs:
+  build: # job1 id
+    runs-on: ubuntu-latest # 运行环境为最新版 Ubuntu
+    name: A job to deploy blog.
+    steps:
+      - name: Checkout # 获取源码
+        uses: actions/checkout@master
+
+      - name: Install Dependencies
+        run: npm install # 安装 node modules 相关依赖
+
+      - name: Deploy
+        id: deploy
+        uses: sma11black/hexo-action@v1.0.0
+        with:
+          deploy_key: ${{ secrets.ACCESS_TOKEN }}
+          user_name: monkeycf
+          user_email: 2548772327@qq.com
