@@ -161,4 +161,4 @@ export function calculateHashSample(file) {
 
 2. Google Chrome  83.0.4103.61（64 位）
 
-3. 
+   ![](http://img.chensenran.top/1590826392920.png)
